@@ -6,8 +6,8 @@
 
 ### 目录介绍
 - biquge 笔趣阁
-  - ![笔趣阁配置文件](biquge/application-biquge.properties)笔趣阁配置文件
-  - ![笔趣阁在线阅读启动文件](biquge/biquge-start.py)笔趣阁在线阅读启动文件
+  - [笔趣阁配置文件](biquge/application-biquge.properties)
+  - [笔趣阁在线阅读启动文件](biquge/biquge-start.py)
 
 
 # v1.0 
