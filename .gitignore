@@ -1,3 +1,18 @@
+# IntelliJ IDEA Project files
+.idea/
+*.iml
+*.ipr
+*.iws
+.out/
+/out/
+/target/
+*/target/
+/*/*/target/
+
+# Eclipse project files
+.classpath
+.project
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
