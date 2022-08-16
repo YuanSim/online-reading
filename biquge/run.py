@@ -14,7 +14,7 @@ class Run(object):
         str_all = dictProperties['biquge']
         url = str_all['nowurl']
         nexturl = self.bqg.get_next_url(url)
-        print(nexturl)
+        # print(nexturl)
         old_str = 'biquge.nowurl'
         self.properties.update_perties(old_str, nexturl)
 
@@ -25,6 +25,21 @@ class Run(object):
         old_str = 'biquge.nowurl'
         self.properties.update_perties(old_str, indexurl)
 
+    def print_error(seif):
+        print('properties = properties_handler.Properties(fileName)\n')
+        print('dictProperties = properties.getProperties()\n')
+        print('bqg = biquge_handler.Biquge_handler()')
+        headers = [
+            'Host: www.xbiquwx.la',
+            'Connection: keep - alive',
+            'Cache - Control: max - age = 0',
+            'Accept - Encoding: gzip, deflate, br',
+            'Accept - Language: zh - CN, zh;'
+        ]
+        for l in headers:
+            print(l)
+        a = [1, 2]
+        print(a[3])
 
 if __name__ == '__main__':
     fileName = "application-biquge.properties"
@@ -36,12 +51,14 @@ if __name__ == '__main__':
     bqg = biquge_handler.Biquge_handler()
     url = str_all['nowurl']
     # print(url)
-    bqg.get_next_url(url)
+    # bqg.get_next_url(url)
     # print(url)
     run = Run(fileName)
+    run.read_next()
 
     keyboard.add_hotkey('right', run.read_next)
     keyboard.add_hotkey('ctrl', run.read_index, args=(baseurl,))
+    keyboard.add_hotkey('down', run.print_error)
     keyboard.wait('esc')
     print('已退出')
 

@@ -1,6 +1,6 @@
 # encoding=utf-8
 # 导包,发起请求使用urllib库的request请求模块
-import keyboard
+# import keyboard
 import requests
 
 
@@ -15,7 +15,14 @@ class Biquge_handler():
         :param txt_url: 网址
         :return: html内容
         """
-        res = requests.get(txt_url)
+        headers = {
+            'Host': 'www.xbiquwx.la',
+            'Connection': 'keep - alive',
+            'Cache - Control': 'max - age = 0',
+            'Accept - Encoding': 'gzip, deflate, br',
+            'Accept - Language': 'zh - CN, zh;'
+        }
+        res = requests.get(txt_url, headers)
         txt = res.text
         # print(txt)
         # txt = txt.encode('utf-8')
@@ -34,7 +41,17 @@ class Biquge_handler():
         for l in t:
             # print(l)
             if it in l:
-                print(l.split(it)[0])
+                lin = l.split(it)[0]
+                length = len(lin)
+                # print(length)
+                n = int(length/30)+1
+                # print(n)
+                for i in range(n):
+                    # print(i)
+                    if i+1 == n:
+                        print(lin[i * 30:len(lin)])
+                    else:
+                        print(lin[i * 30:(i+1)*30])
 
     # 获取固定章节地址
     def get_chapter_num(self, base_url, num):
@@ -83,41 +100,5 @@ class Biquge_handler():
 
 
 if __name__ == '__main__':
-    # 书香小说网
-    # url = 'https://www.xbiquge.la/'
-    # 笔趣阁
-    # url = 'https://www.xbiquwx.la/'
-    # 书趣阁
-    # url = 'https://www.shuquge.com/'
-    # url = 'https://www.xbiquge.la/'
-    baseurl = 'https://www.xbiquwx.la/'
-    txtnum = '112_112946'  # 万界竞技，开局我选张三丰
-    # txtnum = input('请输入小说代码:')
-    baseurl = baseurl + txtnum + '/'
-    # print(baseurl)
-    # print(chapternum)
-    n = 190
-    # n = input('请选择章节:')
     bqg = Biquge_handler()
-    url = bqg.get_chapter_num(baseurl, int(n))
-    # bqg.split_txt(url)
-    print(url)
-
-    # url = bqg.get_next_url(url)
-    keyboard.add_hotkey('right', bqg.get_next_url, args=(url,))
-    keyboard.add_hotkey('ctrl', bqg.get_chapter_num, args=(baseurl, int(input('请选择章节:'))))
-    keyboard.wait()
-    # print(url)
-    # while True:
-    #     bqg.split_txt(url)
-    #     n = input('请选择章节:')
-    #     if n == '':
-    #         url = bqg.get_next_url(url)
-    #     else:
-    #         url = bqg.get_chapter_num(baseurl, int(n))
-    #     if not url:
-    #         print('输入章节有误')
-    #         break
-    #     if n == 'e':
-    #         print('退出')
-    #         break
+    bqg.split_txt('https://www.xbiquwx.la/112_112946/28207415.html')
