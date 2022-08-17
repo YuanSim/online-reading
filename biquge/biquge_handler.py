@@ -36,10 +36,14 @@ class Biquge_handler():
         j = '&nbsp;&nbsp;&nbsp;&nbsp;'
         t = txt.split(j)
         # print(len(t))
-        # print(t)
+        print(t)
         it = '<br/><br/>'
+        t1 = '<title>'
+        # t2 = '</title>'
         for l in t:
             # print(l)
+            if t1 in l:
+                print(l.split(t1)[1].split('_')[0])
             if it in l:
                 lin = l.split(it)[0]
                 length = len(lin)
