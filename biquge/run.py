@@ -56,9 +56,9 @@ if __name__ == '__main__':
     run = Run(fileName)
     run.read_next()
 
-    keyboard.add_hotkey('right', run.read_next)
+    keyboard.add_hotkey('j', run.read_next)
     keyboard.add_hotkey('ctrl', run.read_index, args=(baseurl,))
-    keyboard.add_hotkey('down', run.print_error)
+    keyboard.add_hotkey('k', run.print_error)
     keyboard.wait('esc')
     print('已退出')
 

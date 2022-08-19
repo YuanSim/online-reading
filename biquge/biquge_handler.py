@@ -36,7 +36,7 @@ class Biquge_handler():
         j = '&nbsp;&nbsp;&nbsp;&nbsp;'
         t = txt.split(j)
         # print(len(t))
-        print(t)
+        # print(t)
         it = '<br/><br/>'
         t1 = '<title>'
         # t2 = '</title>'
